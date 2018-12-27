@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="Employee.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Employee"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Pivot HorizontalAlignment="Center">
+            <Pivot.Title>
+                <SplitView VerticalAlignment="Center" HorizontalAlignment="Center" >
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center"  >
+                        <TextBlock Text="Thong Tin Sinh Vien" FontWeight="Bold" FontSize="50"></TextBlock>
+                    </StackPanel>
+                </SplitView>
+            </Pivot.Title>
+            <PivotItem Header="Thong Tin" Style="{ThemeResource PivotTitleContentControlStyle}" FontWeight="Bold">
+                <StackPanel>
+                    <ListView  ItemsSource="{x:Bind students}"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Stretch">
+                        <ListView.ItemTemplate>
+                            <DataTemplate >
+                                <TextBlock Text="{x:Bind firstName}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                       
+                            <DataTemplate >
+                                <TextBlock Text="{x:Bind lastName}"/>
+                            </DataTemplate>
+                        <DataTemplate >
+                            <TextBlock Text="{x:Bind email}"/>
+                        </DataTemplate>
+
+                    </ListView>
+                </StackPanel>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</Page>
